@@ -1,25 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My First Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sanjin Asaj – popravak PC-a, Androida i tehnike</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Bok. Učim web dizajniranje</h1>
-    <p>Ovo mi je prva web stranica.</p>
-  </header>
 
-  <main>
-    <h2>O meni</h2>
-    <p>Početnik, ali ide. Tehničar za računalstvo. Tech development enthusiast.</p>
+<header class="nav">
+  <a href="#top" class="logo"><span class="logo-mark">SA</span> Sanjin Asaj</a>
+  <nav>
+    <a href="#services">Usluge</a>
+    <a href="#process">Kako radi</a>
+    <a href="#contact" class="btn btn-small">Rezerviraj popravak</a>
+  </nav>
+</header>
 
-    <button id="colorBtn">Klikni</button>
-    <p id="message"></p>
-  </main>
+<main id="top">
+  <section class="hero">
+    <div class="hero-text">
+      <h1><span>Spor PC.</span> <span>Razbijen mobitel.</span> <span>Popravljeno.</span></h1>
+      <p>Popravci, nadogradnje i tehnička pomoć za računala, prijenosnike i Android uređaje. Recite nam što je pokvareno i u nekoliko sekundi dobijte prvu dijagnozu.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn">Rezerviraj popravak</a>
+        <a href="#services" class="btn btn-ghost">Pogledaj usluge</a>
+      </div>
+    </div>
 
-  <script src="script.js"></script>
+    <div class="diag" aria-live="polite">
+      <div class="diag-bar"><i></i><i></i><i></i><span>brza-dijagnoza</span></div>
+      <p class="diag-label">1. Koji uređaj?</p>
+      <div class="chips" id="deviceChips"></div>
+      <p class="diag-label">2. Što je pokvareno?</p>
+      <div class="chips" id="symptomChips"></div>
+      <div class="result" id="result">
+        <p class="result-empty">Odaberite uređaj i problem da vidite vjerojatan uzrok, vrijeme popravka i raspon cijene.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <h2>Što popravljamo</h2>
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-filter="all">Sve</button>
+      <button class="tab" data-filter="pc">PC i prijenosnici</button>
+      <button class="tab" data-filter="android">Android</button>
+      <button class="tab" data-filter="other">Ostala tehnika</button>
+    </div>
+    <div class="grid" id="serviceGrid"></div>
+  </section>
+
+  <section class="section dark" id="process">
+    <h2>Kako radi</h2>
+    <ol class="steps">
+      <li><b>Predaja</b><span>Donesite uređaj ili nam pošaljite fotografije problema.</span></li>
+      <li><b>Dijagnoza</b><span>Pronalazimo uzrok i prije početka dajemo fiksnu cijenu.</span></li>
+      <li><b>Popravak</b><span>Većina popravaka gotova je unutar 24 do 48 sati.</span></li>
+      <li><b>Provjera</b><span>Sve testiramo uz vas i dajemo 6 mjeseci jamstva.</span></li>
+    </ol>
+    <div class="stats">
+      <div><strong data-count="2400">0</strong><span>popravljenih uređaja</span></div>
+      <div><strong data-count="98">0</strong><span>% zadovoljnih korisnika</span></div>
+      <div><strong data-count="24">0</strong><span>sata prosječno vrijeme popravka</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Rezerviraj popravak</h2>
+    <form id="contactForm" novalidate>
+      <label>Ime
+        <input type="text" id="name" placeholder="Vaše ime">
+      </label>
+      <label>E-mail
+        <input type="email" id="email" placeholder="vi@primjer.hr">
+      </label>
+      <label class="full">Koji je problem?
+        <textarea id="message" rows="4" placeholder="Model uređaja i što se događa"></textarea>
+      </label>
+      <p class="error" id="formError" role="alert"></p>
+      <button class="btn" type="submit">Pošalji upit</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <span>© <span id="year"></span> Sanjin Asaj. Tehnička znanja i popravci.</span>
+  <a href="#top">Na vrh</a>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="script.js"></script>
 </body>
 </html>
